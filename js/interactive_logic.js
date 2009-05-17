@@ -289,7 +289,7 @@
     var curFilename = this.getCurFilename();
     var sampleObj = this.sampleFileNameToObject(curFilename);
     var url = sampleObj.boilerplateLoc;
-    // var providers_req = sampleObj.providers.split(","); // Providers to include the JS code for
+    var providers_req = sampleObj.providers.split(","); // Providers to include the JS code for
     var me = this;
     var code = jscode || this.getCode();
     if (url == '') {
@@ -299,11 +299,11 @@
     
     // Build in the Providers required script headers
     // TODO: this will take some more work to tie into the "Save" a copy code
-    // var providers = '';
-    // for (var i = 0; i < providers_req.length; ++i){
-    //     providers += provider_scripts[providers_req];
-    // }
-    // console.log(providers);
+    var providers = '';
+    for (var i = 0; i < providers_req.length; ++i){
+        providers += provider_scripts[providers_req];
+    }
+    console.log(providers);
     $.get(url, function(data, success) {
       if (success) {
         var indentSpaces = me.findNumSpacesToIndentCode(data);
@@ -311,8 +311,8 @@
         data = me.insertJavascript(data, code);
 
         var key = opt_APIKey || "<<INSERT KEY>>";
-        // data = data.replace(/[ ]*PROVIDER_SCRIPTS_HERE/, providers);
-        // data = data.replace(/PROVIDER/, providers_req[0]);
+        data = data.replace(/[ ]*PROVIDER_SCRIPTS_HERE/, providers);
+        data = data.replace(/PROVIDER/, providers_req[0]);
         data = data.replace(/key=.*"/, "key=" + key + "\"");
         // data += '<div id="debugBar" class="debugBarRunning"><div class="debugBarTop"></div><div class="debugBarTile"><div class="debugBarContent"><a href="#" class="debugContinuePaused" onclick="window.setContinue(true);return false;"><img border=0 src="/images/debug-btn-continue.png"></a><img class="debugContinueRunning" src="/images/debug-btn-continue.png"><a href="#" onclick="window.toggleFirebug();return false;"><img border=0 src="/images/debug-btn-firebug-lite.png"></a><span id="debugBarText">Complete.</span></div></div><div class="debugBarBottom"></div></div>';
         callbackFunc(data);

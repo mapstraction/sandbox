@@ -10,11 +10,9 @@ APIKeys = {
   "http://localhost:8081": "ABQIAAAApfWVg6qaIHQdkCxe56e57hR4EqRj3RNZnoYuzojShxUjcPQKRRRta7PtUQsztp2X1ecoqWXc6nT2Aw",
   "http://localhost:8082": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RSx5CqyNL2x2CpPAnLRjeOsKF3h9RS8MrYqU81Z7hEvk8hNGYDQPuHDIw",
   "http://localhost:8083": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RS4uSxNcZeiHmsInBcucCK4dMkMwRQvc88mil886PJxc7uBPrZFDeHEzw",
-  "http://savedbythegoog.appspot.com": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q",
-  "http://mapstraction.appspot.com": "ABQIAAAAYfI_xw3MwUbmAScWsa72VBSnCkL-aeBHYDOX4AW5_XMyauPM6BQFNb3_-pHCaQ4i93y5kpVNEzjc9Q",
+  "http://savedbythegoog.appspot.com": "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw",
+  "http://mapstraction.appspot.com": "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw",
   "http://code.google.com": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q",
-  # "http://code.google.com": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RSosDVG8KKPE1-m51RBrvYughuyMxQb4QY32wd-bGTUz44F9R1FRoxuMQ",
-  "http://3.latest.interactivesampler.appspot.com": "ABQIAAAApfWVg6qaIHQdkCxe56e57hRjhzB3KZGy152OEg0TJlXJFkRU_BQrpMLEBH0qDjVP42_nUjmPBEhIkA",
   "http://172.31.155.89:8082": "ABQIAAAApfWVg6qaIHQdkCxe56e57hTjpPIn9SDiNRzoec4tqssl2kJszBTEk7bhC42qvPfkfUqZw2ht8CyQzg"
 }
 
