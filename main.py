@@ -49,9 +49,10 @@ class SavedCode(db.Model):
   user = db.UserProperty()
   sampleName = db.StringProperty()
   boilerplateLoc = db.StringProperty()
+  providers = db.StringProperty()
   tags = db.StringProperty()
   date = db.DateTimeProperty(auto_now_add=True)
-  # {'samplename': 'blah', 'tags': 'all my tags', 'boilerplateLoc': 'path/to/boiler', 'files': ['path/to/?id=id']}
+  # {'samplename': 'blah', 'tags': 'all my tags', 'boilerplateLoc': 'path/to/boiler', 'files': ['path/to/?id=id'], 'providers': 'google,openlayers'}
 
 def getTemplateValues(self, cgiArgs):
   user = users.get_current_user()
@@ -218,6 +219,7 @@ class Main(webapp.RequestHandler):
             'files': ['get?id=' + str(i.key())],
             'sampleName': cgi.escape(i.sampleName),
             'boilerplateLoc': i.boilerplateLoc,
+            'providers': i.providers,
             'tags': cgi.escape(i.tags),
             'id': str(i.key())
             })
@@ -274,23 +276,25 @@ class RedirectToMain(webapp.RequestHandler):
     self.redirect('/apis/ajax/playground/')
 
 class Save(webapp.RequestHandler):
-  def saveCode(self, user, jscode, sampleName, tags, boilerplateLoc):
+  def saveCode(self, user, jscode, sampleName, tags, boilerplateLoc, providers):
     saved_code = SavedCode()
     saved_code.user = user
     saved_code.sampleName = sampleName
     saved_code.tags = tags
     saved_code.boilerplateLoc = boilerplateLoc
+    saved_code.providers = providers
     saved_code.jscode = jscode
     key = saved_code.put()
     hashLink = '#' + sampleName.lower().replace(' ', '_')
     return hashLink
 
-  def updateCode(self, id, jscode, boilerplateLoc):
+  def updateCode(self, id, jscode, boilerplateLoc, providers):
     entry = db.get(db.Key(str(id)))
     user = users.get_current_user()
     if entry.user == user:
       entry.jscode = jscode
       entry.boilerplateLoc = boilerplateLoc
+      entry.providers = providers
       entry.put()
       hashLink = '#' + entry.sampleName.lower().replace(' ', '_')
       return hashLink
@@ -308,10 +312,11 @@ class Save(webapp.RequestHandler):
       sampleName =  self.request.get('sampleName')
       tags = self.request.get('tags')
       boilerplateLoc = self.request.get('boilerplateLoc')
+      providers = self.request.get('providers')
       if id and jscode:
-        hashLink = self.updateCode(id, jscode, boilerplateLoc)
+        hashLink = self.updateCode(id, jscode, boilerplateLoc, providers)
       elif jscode and sampleName:
-        hashLink = self.saveCode(user, jscode, sampleName, tags, boilerplateLoc)
+        hashLink = self.saveCode(user, jscode, sampleName, tags, boilerplateLoc, providers)
 
         # path = os.path.join(os.path.dirname(__file__), 'index.html')
         # self.response.out.write(template.render(path, self.template_values))

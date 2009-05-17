@@ -18,7 +18,7 @@
       "microsoft":'<script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>',
       "yahoo":'<script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.0&appid=MapstractionDemo"></script>',
       "multimap":'<script type="text/javascript," src="http://developer.multimap.com/API/maps/1.2/OA070606486554191"></script>',
-      "map24":'  <script type="text/javascript" language="javascript" src="http://api.maptp.map24.com/ajax?appkey=FJXe1b9e7b896f8cf70534ee0c69ecbfX16"></script>',
+      "map24":'<script type="text/javascript" language="javascript" src="http://api.maptp.map24.com/ajax?appkey=FJXe1b9e7b896f8cf70534ee0c69ecbfX16"></script>',
       "mapquest": '<script   src=" http://btilelog.beta.mapquest.com/tilelog/transaction?transaction=script&key=mjtd%7Clu6t210anh%2Crn%3Do5-labwu&itk=true&v=5.3.0_RC5&ipkg=controls1" type="text/javascript"></script>',
       "freeearth":'<script type="text/javascript" src="http://freeearth.poly9.com/api.js"></script>',
       "openspace":'<script src="http://openspace.ordnancesurvey.co.uk/osmapapi/openspace.js?key=533DAFA505CD4AEAE0405F0AF1602D02" type="text/javascript"></script>',
@@ -289,7 +289,7 @@
     var curFilename = this.getCurFilename();
     var sampleObj = this.sampleFileNameToObject(curFilename);
     var url = sampleObj.boilerplateLoc;
-    var providers_req = sampleObj.providers.split(","); // Providers to include the JS code for
+    // var providers_req = sampleObj.providers.split(","); // Providers to include the JS code for
     var me = this;
     var code = jscode || this.getCode();
     if (url == '') {
@@ -298,10 +298,12 @@
     }
     
     // Build in the Providers required script headers
-    var providers = '';
-    for (var i = 0; i < providers_req.length; ++i){
-        providers += provider_scripts[providers_req];
-    }
+    // TODO: this will take some more work to tie into the "Save" a copy code
+    // var providers = '';
+    // for (var i = 0; i < providers_req.length; ++i){
+    //     providers += provider_scripts[providers_req];
+    // }
+    // console.log(providers);
     $.get(url, function(data, success) {
       if (success) {
         var indentSpaces = me.findNumSpacesToIndentCode(data);
@@ -309,8 +311,8 @@
         data = me.insertJavascript(data, code);
 
         var key = opt_APIKey || "<<INSERT KEY>>";
-        data = data.replace(/[ ]*PROVIDER_SCRIPTS_HERE/, providers);
-        data = data.replace(/PROVIDER/, providers_req[0]);
+        // data = data.replace(/[ ]*PROVIDER_SCRIPTS_HERE/, providers);
+        // data = data.replace(/PROVIDER/, providers_req[0]);
         data = data.replace(/key=.*"/, "key=" + key + "\"");
         // data += '<div id="debugBar" class="debugBarRunning"><div class="debugBarTop"></div><div class="debugBarTile"><div class="debugBarContent"><a href="#" class="debugContinuePaused" onclick="window.setContinue(true);return false;"><img border=0 src="/images/debug-btn-continue.png"></a><img class="debugContinueRunning" src="/images/debug-btn-continue.png"><a href="#" onclick="window.toggleFirebug();return false;"><img border=0 src="/images/debug-btn-firebug-lite.png"></a><span id="debugBarText">Complete.</span></div></div><div class="debugBarBottom"></div></div>';
         callbackFunc(data);

@@ -1,5 +1,5 @@
 function initialize() {
-    var mapstraction = new Mapstraction('map_canvas','google');
+    var mapstraction = new Mapstraction('map_canvas','openlayers');
 
     var myPoint = new LatLonPoint(37.4041960114344,-122.008194923401);
     mapstraction.setCenterAndZoom(myPoint, 3);
