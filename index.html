@@ -1,0 +1,398 @@
+<!-- copyright (c) 2009 Google inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Author: Ben Lisbakken
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css"
+        media="screen,projection" type="text/css">
+  <link rel="stylesheet" href="codemirror/css/docs.css"
+        media="screen,projection" type="text/css">
+  <!-- JavaScript -->
+  <title>Mapstraction API Sandbox</title>
+  <script src="codemirror/js/prod_codemirrorz_513eeb9927a9d790c360886e3bb09a43.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/jquery-ui-packed.js" type="text/javascript" charset="utf-8"></script>
+
+  {% for i in sample_srcs %}
+    <script src="{{ i }}" type="text/javascript" charset="utf-8"></script>
+  {% endfor %}
+  <!--
+    Undesirable to put inline script in between script includes
+    but this is the best way to load saved examples
+  -->
+  <script type="text/javascript" charset="utf-8">
+    {% if usersSamplesJSON %}
+
+      var userJSON = {{ usersSamplesJSON }};
+    if (typeof userJSON != 'undefined' && userJSON.length) {
+      codeArray = userJSON.concat(codeArray);
+    }
+    {% endif %}
+    var curAPITypes = '{{ curAPITypes }}';
+    var expandedCategory = '{{ expandedCategory }}';
+  </script>
+  <script src="js/interactive_logic.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var loginUrl = '{{ loginUrl }}';
+    var logoutUrl = '{{ logoutUrl }}';
+    function init() {
+      is.init(document.getElementById('editor'));
+    }
+
+    $(window).bind('load', function() {
+      init();
+    });
+  </script>
+</head>
+<body style="padding: 0px 0px;background-color: #E5ECF9;">
+
+
+<div id="container">
+  <!-- <div id="loggedInBar">{% if userEmail %} {{ userEmail }} <span style="font-weight: normal">|</span> <a href="http://spreadsheets.google.com/viewform?hl=en&formkey=cFM5OU5yN3BrRzhOOEhFc2VBMmlQU2c6MA" style="color: #C00000;font-weight: bold;" target="_blank">Tell us what you think</a> <span style="font-weight: normal">|</span> <a href="{{ logoutUrl }}">Sign out</a></div>{% else %} <a href="http://spreadsheets.google.com/viewform?hl=en&formkey=cFM5OU5yN3BrRzhOOEhFc2VBMmlQU2c6MA" style="color: #C00000;font-weight: bold;" target="_blank">Tell us what you think</a> <span style="font-weight: normal">|</span> <a href="{{ loginUrl }}">Sign In</a></div> {% endif %} -->
+  <div class="whiteTopBar">
+    <table style="">
+      <tr>
+        <td id="googleLogoTD">
+          <img height="53px" src="images/mapstraction_logo.png" title="Mapstraction Logo">
+          
+        </td>
+        <td valign=middle style="width: 60%">
+          <h1 id="header">Mapstraction API Sandbox</h1>
+        </td>
+        <td style="width:80%;">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+
+
+<div id="content" style="height:500px;">
+<table class="contentTable">
+<tr>
+  <td id="selectContainer">
+    <table cellpadding=0 cellspacing=0 style="width:100%;">
+      <tr>
+        <td class="border_tl"></td>
+        <td class="border_t"></td>
+        <td class="border_tr"></td>
+      </tr>
+      <tr>
+        <td class="border_l"></td>
+        <td>
+          <div>
+            <h2>
+              <table class="headerTable">
+                <tbody>
+                <tr>
+                  <td style="width: 90px" class="headerFont">
+                    Pick Sample
+                  </td>
+                  <td align="right">
+                    <table cellpadding=0 cellspacing=0>
+                      <tr>
+                        <td class="search_tl"></td>
+                        <td class="search_t_b"></td>
+                        <td class="search_tr"></td>
+                      </tr>
+                      <tr>
+                        <td class="search_l_r"></td>
+                        <td style="background-color:white;" class="searchContainer">
+                          <input type="text" id="search" value="Search" style="color:gray;" onclick="this.value='';this.style.color='black';return false;">
+                        </td>
+                        <td class="search_l_r"></td>
+                      </tr>
+                      <tr>
+                        <td class="search_bl"></td>
+                        <td class="search_t_b"></td>
+                        <td class="search_br"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </h2>
+          </div>
+          <div id="selectCode"></div>
+        </td>
+        <td class="border_r"></td>
+      </tr>
+      <tr>
+        <td class="border_bl"></td>
+        <td class="border_b draggerMid"></td>
+        <td class="border_br"></td>
+      </tr>
+    </table>
+  </td>
+
+
+
+
+  <td id="codeContainer">
+    <table cellpadding=0 cellspacing=0 style="width:100%;">
+      <tr>
+        <td class="border_tl"></td>
+        <td class="border_t"></td>
+        <td class="border_tr"></td>
+      </tr>
+      <tr>
+        <td class="border_l"></td>
+        <td>
+          <div id="editor">
+              <div id="editDrag">
+                <h2>
+                <table class="headerTable">
+                  <tbody>
+                    <tr>
+                      <td style="width: 80px" class="headerFont">Edit Code</td>
+                      <td align="center" id="demoTitle">&nbsp;</td>
+                      <td align="right" class="codeMenuTD">
+                        <span id="codeMenu" class="buttonDropdownContainer">
+                          <span id="codeMenuButtonContainer" style="">
+                            <a id="docsLink" target="_blank" title="View the documentation for this sample.">
+                              <span id="docsButton"></span>
+                            </a>
+                            <a href="javascript:is.toggleEditHTML();" title="Toggle between Javascript and HTML editing."><span id="toggleEditHTMLButton"></span></a>
+                            <span id="dropdownButton"></span>
+                          </span>
+
+
+                          <br style="clear:both;">
+                          <span id="codeMenuDropdown" class="dropdown" >
+                            <div class="menuTop"></div>
+                            <div class="menuTile">
+                              <span class="first" onclick="is.uiEffects.toggleDropdown($('#codeMenuDropdown'));is.linkCode();return false;"><img src="images/export.png" title="Export Code" />&nbsp;Export
+                              </span>
+                              {% if loginUrl %}
+                              <span onclick="is.uiEffects.toggleDropdown($('#codeMenuDropdown'));is.confirmLogin('{{ loginUrl }}', true);return false;">
+                                <img src="images/save.png" title="Save" />&nbsp;Save
+                              </span>
+                              {% else %}
+                              <span onclick="is.uiEffects.toggleDropdown($('#codeMenuDropdown'));is.saveCode();return false;">
+                                <img src="images/save.png" title="Save" />&nbsp;Save
+                              </span>
+                              {% endif %}
+                            </div>
+                            <div class="menuBottom"></div>
+                          </span>
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </h2>
+            </div>
+            <div id="edit">
+              <span id="editJS"></span>
+              <span id="editMixed"></span>
+            </div>
+          </div>
+        </td>
+        <td class="border_r"></td>
+      </tr>
+      <tr>
+        <td class="border_bl"></td>
+        <td class="border_b draggerMid"></td>
+        <td class="border_br"></td>
+      </tr>
+    </table>
+    <script type="text/javascript" charset="utf-8">
+    var options = {}
+    if (!location.host.match(/localhost/) && !location.href.match(/\/\/172/)) {
+      options.defaultSample = true;
+    }
+    var mixedEditor = new CodeMirror(document.getElementById('editMixed'), {
+      parserfile: ["prod_mixed_5ca7530f0218ca2f6b1bfc8ffc1bbbf0.js"],
+      stylesheet: ["codemirror/css/xmlcolors.css", "codemirror/css/jscolors.css", "codemirror/css/csscolors.css"],
+      autoMatchParens : true,
+      path : 'codemirror/js/',
+      height : '320px',
+      content: '',
+      lineNumbers: true,
+      breakPoints: false,
+      onLoad: function() {is.runBox.runCode(options);}
+    });
+    var jsEditor = new CodeMirror(document.getElementById('editJS'), {
+      parserfile: ["prod_js_only_8cbac90cb8e8e9b015f995a7ff89cab1.js"],
+      stylesheet: 'codemirror/css/jscolors.css',
+      autoMatchParens : true,
+      path : 'codemirror/js/',
+      height : '320px',
+      content: '',
+      lineNumbers: true,
+      breakPoints: true,
+      onLoad: function() {is.runBox.runCode(options);}
+    });
+    </script>
+  </td>
+</tr>
+<tr>
+
+
+
+
+  <td id="outputContainer" colspan=2>
+    <table cellpadding=0 cellspacing=0 style="width:100%;margin-top: 5px;">
+      <tr>
+        <td class="border_tl"></td>
+        <td class="border_t"></td>
+        <td class="border_tr"></td>
+      </tr>
+      <tr>
+        <td class="border_l"></td>
+        <td>
+          <div id="outputDiv">
+            <div id="outputDrag">
+              <h2>
+                <table  class="headerTable">
+                  <tbody>
+                    <tr>
+                      <td class="headerFont">
+                        Output
+                      </td>
+                      <td align="right">
+                        <a href="javascript:is.runBox.runCode({debugMode: true});" style="text-decoration: none;" title="Run this sample in 'Debug Mode' which enables breakpoints and inserts Firebug Lite."><img border=0 src="images/debug_code.png"></a>
+                        <a href="javascript:is.runBox.runCode();" title="Run this sample."><img border=0 src="images/run_code.png"></a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </h2>
+            </div>
+            <div id="runbox"></div>
+          </div>
+        </td>
+        <td class="border_r"></td>
+      </tr>
+      <tr>
+        <td class="border_bl"></td>
+        <td class="border_b draggerBot"></td>
+        <td class="border_br"></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+
+
+
+<tr>
+  <td colspan=2 class="footer" style="vertical-align: middle; font-size:80%; text-align: center">
+    <div id="footerLinks">
+      Part of the <a href="http://mapstraction.com" title="Mapstraction homepage">Mapstraction</a> project.
+      <!-- ©2009 Google -
+      <a href="http://code.google.com/">Code Home</a> - <a href="http://www.google.com/accounts/TOS">Site Terms of Service</a> -
+      <a href="http://www.google.com/privacy.html">Privacy Policy</a> -
+      <a href="http://code.google.com/more/">Site Directory</a> -
+      <a href="http://code.google.com/p/google-ajax-examples/issues/list" target="_blank">Report Bug</a> -->
+    </div>
+  </td>
+</tr>
+</table>
+</div>
+</div>
+
+<div id="HTMLforInlineJavascript" style="display:none;">&nbsp;</div>
+
+<!--
+There's a bug in jQuery UI where if you drag over an iFrame
+then you can't drag anymore.  Putting an invisible div over the
+iFrame fixes it.
+-->
+<div id="dragsafe"></div>
+
+<form action="http://savedbythegoog.appspot.com/add" id="linkCodeForm" method="POST" target="_blank">
+  <input type="hidden" id="codeHolder" name="code" />
+</form>
+<div id="grayOverlay"></div>
+<div id="saveDiv">
+  <table cellpadding=0 cellspacing=0 style="width:100%;margin-top: 5px;">
+    <tr>
+      <td class="border_tl"></td>
+      <td class="border_t"></td>
+      <td class="border_tr"></td>
+    </tr>
+    <tr>
+      <td class="border_l"></td>
+      <td style="background-color: white;">
+        <h2 style="height:20px">Save Code</h2>
+        <form action="save" method="POST" id="saveForm">
+          <input type="hidden" name="boilerplateLoc" value="" id="boilerplateLoc">
+          <input name="jscode" id="jscodeSaveForm" style="display: none;" />
+          <input type="hidden" name="id" value="" id="idSaveForm">
+          <input type="hidden" name="type" value="{{curAPITypes}}">
+          <input type="hidden" name="sc" id="safetyCookie">
+          <table id="saveFormTable">
+            <tr>
+              <td style="vertical-align: top;" class="formLabel">Sample Name:</td>
+              <td>
+                <div>
+                  <input type="text" id="saveSampleName" name="sampleName" value="My Sample" />
+                  <div class="explain">
+                    This is the display name of the sample.  It must have a unique name.
+                  </div>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td style="vertical-align: top;" class="formLabel">Tags:</td>
+              <td>
+                <div>
+                  <input type="text" id="tagsSaveForm" name="tags" value="tag1, tag2, tag3" />
+                  <div class="explain">
+                    Tags associated with this sample.  They will be used for the search bar.
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td align='right'colspan='2'>
+                <img id="saveFormSubmit" src="images/dialog-btn-save.png" onclick="$('#saveForm').submit();" />
+                <img id="cancelFormSubmit" src="images/dialog-btn-cancel.png" onclick="is.uiEffects.closeSaveForm();return false;" />
+              </td>
+            </tr>
+          </table>
+        </form>
+
+      </td>
+      <td class="border_r"></td>
+    </tr>
+    <tr>
+      <td class="border_bl"></td>
+      <td class="border_b draggerMid"></td>
+      <td class="border_br"></td>
+    </tr>
+  </table>
+</div>
+<script src="js/pushup.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+if (window.location.href.match(/code\.google\.com/)) {
+  var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+  document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript" charset="utf-8">
+try { 
+  var pageTracker = _gat._getTracker("UA-120494-11");
+  pageTracker._trackPageview();
+} catch(err) {}
+</script>
+</body>
+</html>

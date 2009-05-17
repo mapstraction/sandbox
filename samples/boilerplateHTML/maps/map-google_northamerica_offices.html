@@ -1,0 +1,36 @@
+<!--
+  copyright (c) 2009 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps API Sample</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key={{ key }}" type="text/javascript"></script>
+    <script src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/examples/google_northamerica_offices.js" type="text/javascript"></script>
+    <script src="http://gmaps-utility-library.googlecode.com/svn/trunk/markermanager/release/src/markermanager.js"></script>
+    <script type="text/javascript">
+
+    {{ INSERT_JAVASCRIPT_HERE }}
+
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+    <input type="button" onclick="deleteMarker()" value="delete marker #:" />
+    &nbsp;
+    <input type="text" id="markerNum" value="0" size="3"/>
+    |
+    <input type="button" onclick="clearMarkers()" value="clear all markers" />
+
+    |
+    <input type="button" onclick="reloadMarkers()" value="reload all markers" />
+
+    <br/>
+    <div id="map" style="width: 600px; height: 400px;"></div>
+    
+  </body>
+</html>

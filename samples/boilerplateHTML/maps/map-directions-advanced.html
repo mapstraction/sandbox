@@ -1,0 +1,77 @@
+<!--
+  copyright (c) 2009 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps API Sample</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key={{ key }}" type="text/javascript"></script>
+    <style type="text/css">
+    body {
+      font-family: Verdana, Arial, sans serif;
+      font-size: 11px;
+      margin: 2px;
+    }
+    table.directions th {
+      background-color:#EEEEEE;
+    }
+
+    img {
+      color: #000000;
+    }
+    </style>
+    <script type="text/javascript">
+
+    {{ INSERT_JAVASCRIPT_HERE }}
+
+    </script>
+  </head>
+  <body onload="initialize()" onunload="GUnload()" style="font-family: Arial;border: 0 none;">
+    <h2>Maps API Directions Illustrated</h2>
+    <form action="#" onsubmit="setDirections(this.from.value, this.to.value, this.locale.value); return false">
+      <table>
+        <tr>
+          <th align="right">From:&nbsp;</th>
+          <td>
+            <input type="text" size="25" id="fromAddress" name="from" value="San Francisco"/>
+          <td>
+            <th align="right">&nbsp;&nbsp;To:&nbsp;</th>
+            <td align="right"><input type="text" size="25" id="toAddress" name="to" value="Mountain View" />
+          <td>
+        </tr>
+        <tr>
+          <th>Language:&nbsp;</th>
+          <td colspan="3">
+            <select id="locale" name="locale">
+              <option value="en" selected>English</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="ja">Japanese</option>
+              <option value="es">Spanish</option>
+            </select>
+            <input name="submit" type="submit" value="Get Directions!" />
+          <td>
+        </tr>
+     </table>
+    </form>
+    <br/>
+    <table class="directions">
+      <tr>
+        <th>Formatted Directions</th><th>Map</th>
+      </tr>
+      <tr>
+        <td valign="top">
+          <div id="directions" style="width: 275px"></div>
+        <td>
+        <td valign="top">
+          <div id="map_canvas" style="width: 310px; height: 400px"></div>
+        <td>
+      </tr>
+    </table>
+  </body>
+</html>
