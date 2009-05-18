@@ -1,0 +1,37 @@
+<!--
+  copyright (c) 2009 Google inc.
+
+  You are free to copy and use this sample.
+  License can be found here: http://code.google.com/apis/ajaxsearch/faq/#license
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Am I At Where?</title>
+  <script type="text/javascript" src="http://loki.com/plugin/files/loki.js"></script>
+  <script type="text/javascript">
+
+  {{ INSERT_JAVASCRIPT_HERE }}
+
+  </script>
+  <style type="text/css" media="screen">
+	* { margin: 0; }
+	html, body { height: 80%; }
+  #content {text-align:center; min-height: 100%; height: auto !important; height: 100%; margin: 20% auto -0px; }
+  #status {font-size: 40px;font-weight: bold;}
+  #location {font-size: 10px; color: #AAA;}
+  #tip {font-size: 15px;}
+  </style>  
+
+</head>
+<body onload="initialize()" style="font-family: Arial;border: 0 none;">
+  <div id="content">
+    <div id="status">Are you at Where2.0?</div>
+    <div id="location"></div>
+    <div id="tip">currently determining your where2.0abouts</div>
+  </div>
+  <div id="map_canvas" style="width: 100%; height: 400px"></div>
+</body>
+</html>

@@ -1,6 +1,9 @@
 var mapstraction;
 function initialize()
 {
+    // hide the right-hand filter handle
+    $('handle2').hide();
+    
     mapstraction = new Mapstraction('map_canvas', 'google');
     mapstraction.enableScrollWheelZoom(); 
     myPoint = new LatLonPoint(52.250873, 0.110292);

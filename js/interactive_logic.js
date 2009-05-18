@@ -303,7 +303,6 @@
     for (var i = 0; i < providers_req.length; ++i){
         providers += provider_scripts[providers_req];
     }
-    console.log(providers);
     $.get(url, function(data, success) {
       if (success) {
         var indentSpaces = me.findNumSpacesToIndentCode(data);

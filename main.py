@@ -39,7 +39,8 @@ from google.appengine.api import urlfetch
 
 # GLOBAL ARRAY OF APIS & THEIR CONFIGURED JSON FILES.  DON'T EDIT UNLESS YOU'RE SURE
 apis = {
-  'mapstraction': 'samples/TOC/mapstraction_api_samples.js'
+  'mapstraction': 'samples/TOC/mapstraction_api_samples.js',
+  'geoweb': 'samples/TOC/geoweb_api_samples.js'
 }
 #   'earth': 'samples/TOC/earth_api_samples.js',
   # 'maps': 'samples/TOC/maps_api_samples.js'
