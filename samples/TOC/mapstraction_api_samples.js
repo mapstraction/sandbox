@@ -37,15 +37,22 @@ var tempJSON = [
     "samples":[
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-openlayers.html", "files":["samples/js/mapstraction/mapstraction-polylines.js"], "sampleName":"Polylines", "tags": "", "providers": "openlayers"},    
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-openlayers.html", "files":["samples/js/mapstraction/mapstraction-georss.js"], "sampleName":"GeoRSS feed", "tags": "", "providers": "google"},
-    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-tiles.html", "files":["samples/js/mapstraction/mapstraction-tiles.js"], "sampleName":"Tiles", "tags": "", "providers": "google"},
-    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-geocode.html", "files":["samples/js/mapstraction/mapstraction-geocode.js"], "sampleName":"Geocoding", "tags": "", "providers": "openlayers"}
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-tiles.html", "files":["samples/js/mapstraction/mapstraction-tiles.js"], "sampleName":"Tiles", "tags": "", "providers": "google"}
     ],
     "docsUrl": "http://mapstraction.com"
 },  
 {
+    "category":"Mapstraction API-Services",
+    "samples":[
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-geocode.html", "files":["samples/js/mapstraction/mapstraction-geocode.js"], "sampleName":"Geocoding", "tags": "", "providers": "openlayers"},
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-route.html", "files":["samples/js/mapstraction/mapstraction-route.js"], "sampleName":"Routing", "tags": "", "providers": "mapquest,google"}
+    ],
+    "docsUrl": "http://mapstraction.com"
+},    
+{
     "category":"Mapstraction API-mxn",
     "samples":[
-    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-mxn.html", "files":["samples/js/mapstraction/mapstraction-mxn.js"], "sampleName":"Mapstration v2", "tags": "", "providers": ""},
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-mxn.html", "files":["samples/js/mapstraction/mapstraction-mxn.js"], "sampleName":"Mapstraction v2", "tags": "", "providers": ""},
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-geocommons.html", "files":["samples/js/mapstraction/mapstraction-geocommons.js"], "sampleName":"GeoCommons", "tags": "", "providers": ""}
     ],
     "docsUrl": "http://mapstraction.com"

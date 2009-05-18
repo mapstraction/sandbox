@@ -64,6 +64,8 @@ handlers:
   expiration: "10d"
 - url: /apis/ajax/playground/samples/boilerplateHTML/(.*\.html)
   script: boilerplateProxy.py
+- url: /proxy/(.*)
+  script: proxy_handler.py
 - url: /apis/ajax/playground/index.html
   script: main.py
 - url: /apis/ajax/playground/samples/js

@@ -1,5 +1,6 @@
 function initialize() {
-    $.get("http://ws.geonames.org/findNearestAddressJSON?lat=37.451&lng=-122.18},",  function(data) {
+    var proxy = "proxy/?a=";
+    $.get(proxy + "http://ws.geonames.org/findNearestAddressJSON&lat=37.451&lng=-122.18", {},  function(data) {
        alert(data); 
     });
     // // initialise the map with your choice of API
