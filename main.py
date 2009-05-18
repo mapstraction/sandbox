@@ -345,7 +345,7 @@ class CacheCode(webapp.RequestHandler):
     unique_id = self.request.get('unique_id')
     code = code.encode('utf-8')
     query = urllib.urlencode({'code' : code, 'unique_id' : unique_id})
-    data = urlfetch.fetch('http://savedbythegoog.appspot.com/cache_code', query, "POST")
+    data = urlfetch.fetch('http://savedbythegeoweb.appspot.com/cache_code', query, "POST")
     self.response.out.write(data.content)
 
 class GetTOC(webapp.RequestHandler):

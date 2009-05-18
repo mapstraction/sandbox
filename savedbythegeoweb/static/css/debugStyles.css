@@ -1,0 +1,63 @@
+#debugBar {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.debugBarTop {
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 8px;
+}
+.debugBarTile {
+  background-repeat: repeat;
+  width: 170px;
+  margin-top: expression('-10px');
+}
+.debugBarBottom {
+  background-repeat: no-repeat;
+  width: 170px;
+  height: 10px;
+}
+.debugBarContent {
+  margin: 0 8px;
+  margin: expression('0 0 0 7px');
+  color: #427BD6;
+  font-weight: bolder;
+}
+.debugBarRunning .debugBarTop {
+  background-image: url(/images/debugbar-running-top.png);
+}
+.debugBarRunning .debugBarTile {
+  background-image: url(/images/debugbar-running-tile.png);
+}
+.debugBarRunning .debugBarBottom {
+  background-image: url(/images/debugbar-running-bottom.png);
+}
+.debugBarRunning .debugContinuePaused {
+  display: none;
+}
+.debugBarRunning .debugContinueRunning {
+  display: inline;
+  opacity: 0.45;
+}
+.debugBarRunning #debugBarText {
+  color: #427BD6;;
+}
+.debugBarPaused .debugBarTop {
+  background-image: url(/images/debugbar-paused-top.png);
+}
+.debugBarPaused .debugBarTile {
+  background-image: url(/images/debugbar-paused-tile.png);
+}
+.debugBarPaused .debugBarBottom {
+  background-image: url(/images/debugbar-paused-bottom.png);
+}
+.debugBarPaused .debugContinuePaused {
+  display: inline;
+}
+.debugBarPaused .debugContinueRunning {
+  display: none;
+}
+.debugBarPaused #debugBarText {
+  color: #d64242;
+}

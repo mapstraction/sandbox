@@ -1,0 +1,30 @@
+application: savedbythegeoweb
+version: 3
+runtime: python
+api_version: 1
+
+
+
+handlers:
+- url: /proxy/(.*)
+  script: proxy_handler.py    
+- url: /rpc_relay.html
+  static_files: static/rpc_relay.html
+  upload: static/rpc_relay.html
+  expiration: 10d
+- url: /canvas.html
+  static_files: static/canvas.html
+  upload: static/canvas.html
+  expiration: 10d
+- url: /images
+  static_dir: static/images
+  expiration: "10d"
+- url: /css
+  static_dir: static/css
+  expiration: "10d"
+- url: /firebug.js
+  static_files: static/firebug.js
+  upload: static/firebug.js
+  expiration: 10d
+- url: .*
+  script: main.py

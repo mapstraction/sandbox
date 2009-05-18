@@ -30,7 +30,7 @@
     return document.createElement(name);
   }
 
-  var savedByTheGoogAPIKey = "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q";
+  var savedbythegeowebAPIKey = "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q";
 
   function InteractiveSample(){
     this.categories = [];
@@ -243,7 +243,7 @@
     }
 
     if (!data) {
-      this.getFullSrc(this.toggleEditHTML, savedByTheGoogAPIKey);
+      this.getFullSrc(this.toggleEditHTML, savedbythegeowebAPIKey);
       return;
     }
     // if we get to this line, we are in the callback of the above function call
@@ -381,7 +381,7 @@
   };
 
   InteractiveSample.prototype.linkCode = function() {
-    var apiKey = savedByTheGoogAPIKey;
+    var apiKey = savedbythegeowebAPIKey;
     this.getFullSrc(this.sendCodeToServer, apiKey);
   };
 
@@ -955,7 +955,7 @@
         }
       });
     });
-    var firebugScriptString = '<script type="text/javascript" src="http://savedbythegoog.appspot.com/firebug.js"></script>\n<script type="text/javascript">firebug.env.height = 220;\nfirebug.env.liteFilename = \'firebug.js\';\n';
+    var firebugScriptString = '<script type="text/javascript" src="http://savedbythegeoweb.appspot.com/firebug.js"></script>\n<script type="text/javascript">firebug.env.height = 220;\nfirebug.env.liteFilename = \'firebug.js\';\n';
     if (code.indexOf('<head>') == -1) alert('Sample must have <head> element');
     code = code.replace('<head>', '<head>\n' + firebugScriptString + '(' + anony.toString() + ')();</script>');
     return code;
@@ -1058,7 +1058,7 @@
   };
 
   RunBox.prototype.createIframeOrPopout = function(response) {
-    var url = 'http://savedbythegoog.appspot.com/retrieve_cache?unique_id=' + response;
+    var url = 'http://savedbythegeoweb.appspot.com/retrieve_cache?unique_id=' + response;
     if (!is.runBox.runBoxPoppedOut) {
       window.is.runBox.createIframe(url);
     } else {
@@ -1069,7 +1069,7 @@
     }
   };
 
-  RunBox.prototype.sendCodeToSavedByTheGoog = function(options) {
+  RunBox.prototype.sendCodeTosavedbythegeoweb = function(options) {
     var me = this;
     return function(code) {
       var cacheCodeLoc = location.protocol + '//' + location.host + '/apis/ajax/playground/cacheCode';
@@ -1101,16 +1101,16 @@
     }
     var code = this.is.getCode();
     if (this.is.currentEditor == window.mixedEditor) {
-      this.sendCodeToSavedByTheGoog(options)(code);
+      this.sendCodeTosavedbythegeoweb(options)(code);
     } else {
-      var apiKey = savedByTheGoogAPIKey;
+      var apiKey = savedbythegeowebAPIKey;
 
       if (options && options.debugMode) {
         var breakPoints = this.is.currentEditor.getBreakPoints();
         breakPoints = (breakPoints.length == 0) ? null : breakPoints;
         code = this.insertBreakPoints(code, breakPoints);
       }
-      this.is.getFullSrc(this.sendCodeToSavedByTheGoog(options), apiKey, code);
+      this.is.getFullSrc(this.sendCodeTosavedbythegeoweb(options), apiKey, code);
     }
   };
 
