@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Mapstraction API Sample</title>
+  <script src="http://maps.google.com/maps?file=api&v=2&key={{ key }}" type="text/javascript"></script>
+  <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.0&appid=MapstractionDemo"></script>
+  <script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>
+  <script src="http://openlayers.org/api/OpenLayers.js"></script>
+  <script type="text/javascript" src="http://freeearth.poly9.com/api.js"></script>
+  <script   src="http://btilelog.beta.mapquest.com/tilelog/transaction?transaction=script&key=mjtd%7Clu6t210anh%2Crn%3Do5-labwu&itk=true&v=5.3.0_RC5&ipkg=controls1" type="text/javascript"></script> 
+    <script src="http://openspace.ordnancesurvey.co.uk/osmapapi/openspace.js?key=6A46007D73E40B5FE0405F0AF0607714" type="text/javascript"></script>
+  <script type="text/javascript" charset="utf-8" src="http://mapstraction.com/mapstraction-js/mapstraction.js"></script>
+  <script type="text/javascript">
+
+  {{ INSERT_JAVASCRIPT_HERE }}
+
+  </script>
+  <style type="text/css" media="screen">
+  .mapstraction {
+    height: 300px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  </style>
+</head>
+<body onload="initialize()" style="font-family: Arial;border: 0 none;">
+  <body onload="initialize()" style="font-family: Arial;border: 0 none;">
+    <div id="map_canvas" style="width: 100%; height: 400px"></div>
+    <div id="info"></div>
+  </body>
+</body>
+</html>

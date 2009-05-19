@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Mapstraction API Sample</title>
+  <script src="http://maps.google.com/maps?file=api&v=2&key={{ key }}" type="text/javascript"></script>
+  <script type="text/javascript" src="http://api.maps.yahoo.com/ajaxymap?v=3.0&appid=MapstractionDemo"></script>
+  <script src="http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=6"></script>
+  <script   src="http://btilelog.beta.mapquest.com/tilelog/transaction?transaction=script&key=mjtd%7Clu6t210anh%2Crn%3Do5-labwu&itk=true&v=5.3.0_RC5&ipkg=controls1" type="text/javascript"></script> 
+  <script type="text/javascript" charset="utf-8" src="http://mapstraction.com/mapstraction-js/mapstraction.js"></script>
+  <script type="text/javascript">
+
+  {{ INSERT_JAVASCRIPT_HERE }}
+
+  </script>
+  <style type="text/css" media="screen">
+  .mapstraction {
+    height: 300px;
+    width: 100%;
+    z-index: 1;
+  }
+
+  </style>
+</head>
+<body onload="initialize()" style="font-family: Arial;border: 0 none;">
+  <div id="google" class="mapstraction"></div>
+  <div id="multimap" class="mapstraction"  style="display:none"></div>
+  <div id="yahoo" class="mapstraction" style="display:none"></div>
+  <div id="microsoft" class="mapstraction" style="display:none"></div>
+  <div id="freearth" class="mapstraction" style="display:none"></div>
+  <div id="mapquest" class="mapstraction" style="display:none"></div>
+  <div id="openstreetmap" class="mapstraction" style="display:none"></div>
+  <div style="margin-left: 150px; height: 100%; width: 300px;"><div id="mapquest" class="mapstraction" style="display:none;height: 100%; width: 100%;"></div></div>
+  <form action="get">
+    <input type="radio" name="api" value="google" CHECKED onClick="mapstraction.swap('google','google')"> Google<br>
+    <input type="radio" name="api" value="yahoo" onClick="mapstraction.swap('yahoo','yahoo')"> Yahoo<br>
+    <input type="radio" name="api" value="microsoft" onClick="mapstraction.swap('microsoft','microsoft')"> Microsoft<br>        
+    <input type="radio" name="api" value="openstreetmap" onClick="mapstraction.swap('openstreetmap','openstreetmap')"> OpenStreetMap<br/> 
+    <input type="radio" name="api" value="mapquest" onClick="mapstraction.swap('mapquest','mapquest')"> MapQuest<br/> 
+  </form>    
+</body>
+</html>

@@ -30,7 +30,7 @@
     return document.createElement(name);
   }
 
-  var savedbythegeowebAPIKey = "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q";
+  var savedbythegeowebAPIKey = "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw";
 
   function InteractiveSample(){
     this.categories = [];

@@ -3,18 +3,29 @@ var geocoder;
 var address;
 function initialize() {
     mapstraction = new Mapstraction('map_canvas','google');
-    mapstraction.setCenterAndZoom(new LatLonPoint(0,0), 1);
-
-    // initialise the map with your choice of API
+    var myPoint = new LatLonPoint(37.804656, -122.263606);
+    var csv = "name|holepar|holeyardage|holenumber|address\nSimple placemark|4.0|234.0|1.0|1517 N. Main St., Royal Oak, MI\nSimple placemark 2|3.0|100.0|2.0|2200 Wilson Blvd., Arlington, VA";
     geocoder = new MapstractionGeocoder(geocode_return, 'google');
-    
     address = new Object();
-    address.street = "1600 Pennsylvania Ave.";
-    address.locality = "Washington";
-    address.region = "DC";
-    address.country = "US";
+    
+    mapCSV(csv);
+}
 
-    geocoder.geocode(address);    
+function mapCSV(csv) {
+    var rows = csv.split("\n");
+    var headers = rows[0].split("|")
+    var address_col;
+    for(var h=0;h<headers.length;++h) {
+        if(headers[h] == "address")
+        address_col = h;
+    }
+    for(var i=1;i<rows.length;++i) {
+        cols = rows[i].split("|");
+        address.address = cols[address_col];
+        geocoder.geocode(address);         
+    }   
+    mapstraction.autoCenterAndZoom();
+    
 }
 
 function geocode_return(geocoded_location) {
@@ -34,19 +45,11 @@ function geocode_return(geocoded_location) {
     + geocoded_location.locality + ", " 
     + geocoded_location.region;
     geocode_marker.setLabel("A");
-    geocode_marker.setInfoBubble(geocoded_location.address);
+    geocode_marker.setInfoBubble(address);
 
     // display marker 
     mapstraction.addMarker(geocode_marker);
 
     // open the marker
     geocode_marker.openBubble();
-}
-
-
-
-function user_submit() {
-    var address = new Object();
-    address.address = document.getElementById('address').value;
-    geocoder.geocode(address);
 }

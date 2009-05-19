@@ -3,8 +3,15 @@ var tempJSON = [
 {
     "category":"GeoWeb-Geolocation",
     "samples":[
-    {"boilerplateLoc":"samples/boilerplateHTML/geoweb/geoweb-geonames.html", "files":["samples/js/geoweb/geoweb-geonames.js"], "sampleName":"GeoNames", "tags": "", "providers": "openlayers"},
     {"boilerplateLoc":"samples/boilerplateHTML/geoweb/geoweb-atwhere.html", "files":["samples/js/geoweb/geoweb-atwhere.js"], "sampleName":"At Where", "tags": "", "providers": "loki"}
+    ],
+    "docsUrl": "http://mapstraction.com"
+},
+{
+    "category":"GeoNames-Geocoding",
+    "samples":[
+    {"boilerplateLoc":"samples/boilerplateHTML/geoweb/geoweb-geonames.html", "files":["samples/js/geoweb/geoweb-geonames.js"], "sampleName":"GeoNames", "tags": "", "providers": "openlayers"},
+    {"boilerplateLoc":"samples/boilerplateHTML/geoweb/geoweb-geonames.html", "files":["samples/js/geoweb/geoweb-nearestaddress.js"], "sampleName":"Nearest Address", "tags": "", "providers": "openlayers"},
     ],
     "docsUrl": "http://mapstraction.com"
 }  

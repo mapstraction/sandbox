@@ -10,9 +10,9 @@ APIKeys = {
   "http://localhost:8081": "ABQIAAAApfWVg6qaIHQdkCxe56e57hR4EqRj3RNZnoYuzojShxUjcPQKRRRta7PtUQsztp2X1ecoqWXc6nT2Aw",
   "http://localhost:8082": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RSx5CqyNL2x2CpPAnLRjeOsKF3h9RS8MrYqU81Z7hEvk8hNGYDQPuHDIw",
   "http://localhost:8083": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RS4uSxNcZeiHmsInBcucCK4dMkMwRQvc88mil886PJxc7uBPrZFDeHEzw",
-  "http://savedbythegeoweb.appspot.com": "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw",
+  "http://savedbythegeoweb.appspot.com":
+  "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw",
   "http://mapstraction.appspot.com": "ABQIAAAAYfI_xw3MwUbmAScWsa72VBRlOb26qSyU154aZeLwOrF4C7-DphRd2PMapEng5PbZ2SmtYsveejDHpw",
-  "http://code.google.com": "ABQIAAAA1XbMiDxx_BTCY2_FkPh06RRaGTYH6UMl8mADNa0YKuWNNa8VNxQEerTAUcfkyrr6OwBovxn7TDAH5Q",
   "http://172.31.155.89:8082": "ABQIAAAApfWVg6qaIHQdkCxe56e57hTjpPIn9SDiNRzoec4tqssl2kJszBTEk7bhC42qvPfkfUqZw2ht8CyQzg"
 }
 
