@@ -24,7 +24,8 @@ var tempJSON = [
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-map24.html", "files":["samples/js/mapstraction/mapstraction-map24.js"], "sampleName":"Map24", "tags": "", "providers": "map24"},
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-freeearth.html", "files":["samples/js/mapstraction/mapstraction-freeearth.js"], "sampleName":"FreeEarth", "tags": "", "providers": "freeearth"},
     {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-viamichelin.html", "files":["samples/js/mapstraction/mapstraction-viamichelin.js"], "sampleName":"ViaMichelin", "tags": "", "providers": "viamichelin"},
-    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-openspace.html", "files":["samples/js/mapstraction/mapstraction-openspace.js"], "sampleName":"OpenSpace", "tags": "", "providers": "openspace"}
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-openspace.html", "files":["samples/js/mapstraction/mapstraction-openspace.js"], "sampleName":"OpenSpace", "tags": "", "providers": "openspace"},
+    {"boilerplateLoc":"samples/boilerplateHTML/mapstraction/mapstraction-cloudmade.html", "files":["samples/js/mapstraction/mapstraction-cloudmade.js"], "sampleName":"CloudMade", "tags": "", "providers": "cloudmade"}    
     ],
     "docsUrl": "http://mapstraction.com/doc/"
 },  
