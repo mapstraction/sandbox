@@ -1,8 +1,8 @@
 var mapstraction;
 function initialize() {
-    mapstraction = new Mapstraction('map_canvas','google');
+    mapstraction = new mxn.Mapstraction('map_canvas','google');
 
-    var myPoint = new LatLonPoint(37.4041960114344,-122.008194923401);
+    var myPoint = new mxn.LatLonPoint(37.4041960114344,-122.008194923401);
     mapstraction.setCenterAndZoom(myPoint, 3);
     mapstraction.addControls({zoom: 'large'});
 

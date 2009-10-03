@@ -1,6 +1,6 @@
 function initialize() {
-    var mapstraction = new Mapstraction('map_canvas','google');
-    var myPoint = new LatLonPoint(37.404196,-122.008194);
+    var mapstraction = new mxn.Mapstraction('map_canvas','google');
+    var myPoint = new mxn.LatLonPoint(37.404196,-122.008194);
     mapstraction.setCenterAndZoom(myPoint, 9);
 
 /* args = {

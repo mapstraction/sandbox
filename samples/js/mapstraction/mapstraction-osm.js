@@ -1,9 +1,12 @@
 function initialize() {
     // initialise the map with your choice of API
-    var mapstraction = new Mapstraction('map_canvas','openstreetmap');
+    var mapstraction = new mxn.Mapstraction('map_canvas','google');
 
     // create a lat/lon object
-    var myPoint = new LatLonPoint(37.404196,-122.008194);
+    var myPoint = new mxn.LatLonPoint(37.404196,-122.008194);
+    
+    // Add OpenStreetMap base layer
+    mapstraction.addTileLayer("http://tile.openstreetmap.org/{Z}/{X}/{Y}.png", 1.0, "OSM", 1, 19, false);
 
     // display the map centered on a latitude and longitude (Google zoom levels)
     mapstraction.setCenterAndZoom(myPoint, 9);
@@ -14,11 +17,11 @@ function initialize() {
         map_type: true 
     });
     // create a marker positioned at a lat/lon 
-    my_marker = new Marker(myPoint);
+    my_marker = new mxn.Marker(myPoint);
 
     my_marker.setIcon('http://mapstraction.com/icon.gif');
 
-    mapstraction.addMarker( new Marker( new LatLonPoint(37.75,-122.44)));
+    mapstraction.addMarker( new mxn.Marker( new mxn.LatLonPoint(37.75,-122.44)));
 
     // add a label to the marker
     my_marker.setLabel("<blink>Hello!</blink>");

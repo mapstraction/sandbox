@@ -1,8 +1,8 @@
 var mapstraction;
 function initialize()
 {
-    mapstraction = new Mapstraction('map_canvas', 'google');
-    var myPoint = new LatLonPoint(51.387745, -0.50914);
+    mapstraction = new mxn.Mapstraction('map_canvas', 'google');
+    var myPoint = new mxn.LatLonPoint(51.387745, -0.50914);
     mapstraction.setCenterAndZoom(myPoint, 14);
     addMarkers( 100 ); 
 
@@ -48,8 +48,8 @@ function addMarkers( count ) {
     var sw = bounds.getSouthWest();
     var ne = bounds.getNorthEast();
     while ( count-- ) {
-        var ll = new LatLonPoint( sw.lat + ( ( ne.lat - sw.lat ) * Math.random() ), sw.lon + ( ( ne.lon - sw.lon ) * Math.random() ) );
-        var marker = new Marker(ll);
+        var ll = new mxn.LatLonPoint( sw.lat + ( ( ne.lat - sw.lat ) * Math.random() ), sw.lon + ( ( ne.lon - sw.lon ) * Math.random() ) );
+        var marker = new mxn.Marker(ll);
 
         var number = Math.round( 86400000 * Math.random() );
         var d = new Date();
