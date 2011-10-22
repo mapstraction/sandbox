@@ -4,15 +4,15 @@ Mapstraction is a lightweight JavaScript wrapper around major mapping, geocoding
 
 The Mapstraction Sandbox is currently available at: http://mapstraction.appspot.com/
 
-h2. Adding an Example
+== Adding an Example
 
-To add an example, build your HTML page and add it to @/samples/boilerplateHTML/mapstraction/@
+To add an example, build your HTML page and add it to /samples/boilerplateHTML/mapstraction/
 
-and if you need JS add it to: @/samples/js/mapstraction/@
+and if you need JS add it to: /samples/js/mapstraction/
 
-and lastly update the Table of Contents: @/samples/TOC/mapstraction_api_samples.js@
+and lastly update the Table of Contents: /samples/TOC/mapstraction_api_samples.js
 
-h2. Credits
+== Credits
 
 The sandbox code is a fork of the Google AJAX API Playground from http://code.google.com/apis/ajax/playground/
 
