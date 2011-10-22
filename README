@@ -1,8 +1,18 @@
-Mapstraction Sandbox is a web-based interactive demonstration, tutorial, and playground for users and developers to experiment with the Mapstraction mapping API.
+Mapstraction Sandbox is a web-based interactive demonstration, tutorial, and playground for users and developers to experiment with the Mapstraction mapping API. http://mapstraction.com
 
 Mapstraction is a lightweight JavaScript wrapper around major mapping, geocoding, and routing services that makes it easier to integrate, and switch between, any mapping library. 
 
 The Mapstraction Sandbox is currently available at: http://mapstraction.appspot.com/
+
+h2. Adding an Example
+
+To add an example, build your HTML page and add it to @/samples/boilerplateHTML/mapstraction/@
+
+and if you need JS add it to: @/samples/js/mapstraction/@
+
+and lastly update the Table of Contents: @/samples/TOC/mapstraction_api_samples.js@
+
+h2. Credits
 
 The sandbox code is a fork of the Google AJAX API Playground from http://code.google.com/apis/ajax/playground/
 
